@@ -6,14 +6,34 @@ class MyGallery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      itemCount: galleryData.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 243, 148, 148),
+            Color.fromARGB(255, 240, 188, 188),
+            Color.fromARGB(255, 240, 188, 188),
+            Color.fromARGB(255, 243, 148, 148),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
       ),
-      itemBuilder: (context, index) {
-        return galleryData[index];
-      },
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: GridView.builder(
+          itemCount: galleryData.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+          ),
+          itemBuilder: (context, index) {
+            return Container(
+              margin: EdgeInsets.all(4),
+              child: galleryData[index],
+            );
+          },
+        ),
+      ),
     );
   }
 }

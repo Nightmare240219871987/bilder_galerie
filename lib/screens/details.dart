@@ -9,16 +9,17 @@ class Details extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEEEEEE),
+      backgroundColor: Color.fromARGB(255, 243, 148, 148),
       appBar: AppBar(
         title: Center(
           child: Text("Details", style: TextStyle(color: Color(0xFFEEEEEE))),
         ),
+        foregroundColor: Color(0xFFEEEEEE),
         backgroundColor: const Color.fromARGB(255, 106, 7, 0),
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
           children: [
             Image.asset(item.imagePath),
             Padding(

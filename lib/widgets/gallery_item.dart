@@ -24,22 +24,33 @@ class GalleryItem extends StatelessWidget {
         ).push(MaterialPageRoute(builder: (context) => Details(item: this)));
       },
       child: Card(
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadiusGeometry.circular(8),
-              child: Image.asset(
-                imagePath,
-                height: 156,
-                width: 200,
-                fit: BoxFit.cover,
+        elevation: 4,
+        color: Colors.grey.shade400.withValues(alpha: 0.3),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+            border: BoxBorder.all(
+              color: Colors.grey.shade400.withValues(alpha: 0.6),
+            ),
+          ),
+          child: Column(
+            spacing: 10,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadiusGeometry.only(
+                  topLeft: Radius.circular(8.0),
+                  topRight: Radius.circular(8.0),
+                ),
+                child: Image.asset(
+                  imagePath,
+                  height: 140,
+                  width: 200,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
-              child: Center(child: Text(imageTitle)),
-            ),
-          ],
+              Center(child: Text(imageTitle)),
+            ],
+          ),
         ),
       ),
     );

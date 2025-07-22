@@ -17,8 +17,10 @@ class _AppHomeState extends State<AppHome> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Bilder Gallerie",
       home: Scaffold(
-        backgroundColor: Color(0xFFEEEEEE),
+        //backgroundColor: Color.fromARGB(255, 240, 188, 188),
         appBar: AppBar(
           title: Center(
             child: Text(
@@ -31,7 +33,7 @@ class _AppHomeState extends State<AppHome> {
         body: screens[currentIndex],
         bottomNavigationBar: NavigationBar(
           selectedIndex: currentIndex,
-          backgroundColor: const Color.fromARGB(255, 223, 209, 209),
+          backgroundColor: const Color.fromARGB(255, 106, 7, 0),
           indicatorColor: const Color.fromARGB(255, 218, 134, 162),
           onDestinationSelected: (value) {
             setState(() {
@@ -39,9 +41,18 @@ class _AppHomeState extends State<AppHome> {
               currentTitle = titles[value];
             });
           },
+          labelTextStyle: WidgetStatePropertyAll(
+            TextStyle(color: Color(0xFFEEEEEE)),
+          ),
           destinations: [
-            NavigationDestination(icon: Icon(Icons.image), label: "Bilder"),
-            NavigationDestination(icon: Icon(Icons.person), label: "Über mich"),
+            NavigationDestination(
+              icon: Icon(Icons.image, color: Color(0xFFEEEEEE)),
+              label: "Bilder",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.person, color: Color(0xFFEEEEEE)),
+              label: "Über mich",
+            ),
           ],
         ),
       ),
